@@ -1,20 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  /* Palette */
+  --color-ivory:         #F8F4EE;
+  --color-parchment:     #F1EBE0;
+  --color-card:          #FDFAF5;
+  --color-ink:           #1E1714;
+  --color-ink-2:         #3D332C;
+  --color-ink-3:         #6B5D52;
+  --color-ink-4:         #9B8B80;
+  --color-border:        #D8CFBF;
+  --color-border-light:  #EAE2D6;
+  --color-sienna:        #9B4C27;
+  --color-sienna-mid:    #C0622F;
+  --color-sienna-light:  #D4845A;
+  --color-sienna-pale:   #F5E4D8;
+  --color-sage:          #4E7258;
+  --color-sage-pale:     #E0EBE0;
+  --color-ocean:         #2C5F8A;
+  --color-ocean-pale:    #D8E8F5;
+  --color-violet:        #654E8C;
+  --color-violet-pale:   #EBE0F5;
+
+  /* Typography */
+  --font-family-display: 'Cormorant Garamond', Georgia, serif;
+  --font-family-body:    'Libre Baskerville', Georgia, serif;
+  --font-family-mono:    'Fira Code', 'Courier New', monospace;
+
+  /* Shadows */
+  --shadow-card:  0 1px 4px rgba(30, 23, 20, 0.07);
+  --shadow-hover: 0 3px 14px rgba(30, 23, 20, 0.10);
+
+  /* Animation */
+  --animate-fade-up: fadeUp 0.55s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Range input thumb — ::-webkit-slider-thumb cannot be expressed as Tailwind utilities */
+input[type="range"] {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #e8a87c;
-  border: 3px solid #1a1210;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background-color: var(--color-sienna-mid);
+  border: 3px solid var(--color-ivory);
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 5px rgba(155, 76, 39, 0.35);
 }
 
 input[type="range"]::-moz-range-thumb {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #e8a87c;
-  border: 3px solid #1a1210;
+  width: 20px;
+  height: 20px;
+  border-radius: 9999px;
+  background-color: var(--color-sienna-mid);
+  border: 3px solid var(--color-ivory);
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
 }
