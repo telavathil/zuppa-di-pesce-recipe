@@ -2,6 +2,8 @@ import { useState, useMemo } from "react";
 import { getEquipment } from "./utils.js";
 import { NIGHT_TRAD, DAY_TRAD, NIGHT_SV, DAY_SV } from "./data.js";
 import BottomNav from "./components/BottomNav.jsx";
+import OfflineIndicator from "./components/OfflineIndicator.jsx";
+import InstallBanner from "./components/InstallBanner.jsx";
 import RecipeTab from "./components/RecipeTab.jsx";
 import EquipmentTab from "./components/EquipmentTab.jsx";
 import ShoppingTab from "./components/ShoppingTab.jsx";
@@ -90,6 +92,9 @@ export default function App() {
 
       {/* ── Bottom Nav — glassmorphism ── */}
       <BottomNav tab={tab} onTabChange={setTab} />
+
+      <OfflineIndicator />
+      <InstallBanner />
     </div>
   );
 }
