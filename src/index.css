@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  /* Palette */
-  --color-ivory:         #F8F4EE;
-  --color-parchment:     #F1EBE0;
+  /* Palette — updated to DESIGN.md spec */
+  --color-ivory:         #fef9f2;
+  --color-surface-low:   #f0e6d8;
+  --color-parchment:     #ede4d6;
   --color-card:          #FDFAF5;
   --color-ink:           #1E1714;
   --color-ink-2:         #3D332C;
@@ -11,25 +12,29 @@
   --color-ink-4:         #9B8B80;
   --color-border:        #D8CFBF;
   --color-border-light:  #EAE2D6;
-  --color-sienna:        #9B4C27;
-  --color-sienna-mid:    #C0622F;
-  --color-sienna-light:  #D4845A;
-  --color-sienna-pale:   #F5E4D8;
+
+  /* Primary — The Flame (#9b4006) */
+  --color-sienna:        #9b4006;
+  --color-sienna-mid:    #b84d10;
+  --color-sienna-light:  #d4723a;
+  --color-sienna-pale:   #fde8d0;
+
+  /* Tertiary — Sous Vide (#652fe8) */
   --color-sage:          #4E7258;
   --color-sage-pale:     #E0EBE0;
   --color-ocean:         #2C5F8A;
   --color-ocean-pale:    #D8E8F5;
-  --color-violet:        #654E8C;
-  --color-violet-pale:   #EBE0F5;
+  --color-violet:        #652fe8;
+  --color-violet-pale:   #ede9f8;
 
-  /* Typography */
-  --font-family-display: 'Cormorant Garamond', Georgia, serif;
-  --font-family-body:    'Libre Baskerville', Georgia, serif;
+  /* Typography — DESIGN.md: Epilogue + Manrope + Fira Code */
+  --font-family-display: 'Epilogue', Georgia, sans-serif;
+  --font-family-body:    'Manrope', system-ui, sans-serif;
   --font-family-mono:    'Fira Code', 'Courier New', monospace;
 
-  /* Shadows */
-  --shadow-card:  0 1px 4px rgba(30, 23, 20, 0.07);
-  --shadow-hover: 0 3px 14px rgba(30, 23, 20, 0.10);
+  /* Shadows — ambient primary-tinted, no grey */
+  --shadow-card:  0 2px 20px rgba(155, 64, 6, 0.07), 0 1px 4px rgba(155, 64, 6, 0.04);
+  --shadow-hover: 0 4px 48px rgba(155, 64, 6, 0.11), 0 2px 8px rgba(155, 64, 6, 0.05);
 
   /* Animation */
   --animate-fade-up: fadeUp 0.55s ease both;
@@ -40,7 +45,16 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Range input thumb — ::-webkit-slider-thumb cannot be expressed as Tailwind utilities */
+/* Sous Vide pulsing glow — tertiary-fixed-dim shadow */
+@keyframes svGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(101, 47, 232, 0.0); }
+  50%       { box-shadow: 0 0 24px 4px rgba(101, 47, 232, 0.12); }
+}
+.sv-glow {
+  animation: svGlow 3s ease-in-out infinite;
+}
+
+/* Range input — primary-tinted thumb */
 input[type="range"] {
   appearance: none;
   -webkit-appearance: none;
@@ -51,17 +65,17 @@ input[type="range"]::-webkit-slider-thumb {
   width: 20px;
   height: 20px;
   border-radius: 9999px;
-  background-color: var(--color-sienna-mid);
+  background: linear-gradient(135deg, var(--color-sienna), var(--color-sienna-mid));
   border: 3px solid var(--color-ivory);
   cursor: pointer;
-  box-shadow: 0 1px 5px rgba(155, 76, 39, 0.35);
+  box-shadow: 0 2px 8px rgba(155, 64, 6, 0.30);
 }
 
 input[type="range"]::-moz-range-thumb {
   width: 20px;
   height: 20px;
   border-radius: 9999px;
-  background-color: var(--color-sienna-mid);
+  background: linear-gradient(135deg, var(--color-sienna), var(--color-sienna-mid));
   border: 3px solid var(--color-ivory);
   cursor: pointer;
 }
